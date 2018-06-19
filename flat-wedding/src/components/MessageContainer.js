@@ -7,5 +7,4 @@ export default class MessageContainer extends Component{
     <div>Hi Im the message container</div>
   )
   }
-
 }
