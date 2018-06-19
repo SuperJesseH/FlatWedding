@@ -17,7 +17,7 @@ export default class MainBody extends Component{
     console.log(this.state);
     return(
       <div>
-        {/* <BouncingHeads floatAway={this.state.heads}/> */}
+        <BouncingHeads floatAway={this.state.heads}/>
         <MessageContainer />
       </div>
     )

@@ -9,7 +9,7 @@ class App extends Component {
   constructor(){
     super()
 
-    this.state = {currentForm:"login"}
+    this.state = {currentForm:"Auth"}
   }
 
   setCurrentForm = (formName) =>{
@@ -24,12 +24,12 @@ class App extends Component {
   }
 
   render() {
-    const buttons = ["Write on wall", "Events", "RSVP", "LOGIN/Logout"]
+    const buttons = ["WallPost", "Events", "RSVP", "Auth"]
     console.log(this.state);
     return (
       <div className="App">
         <NavBar className="NavBar" setCurrentForm={this.setCurrentForm} buttons={buttons}></NavBar>
-        <Form className="Form"></Form>
+        <Form className="Form" formOptions={buttons} currentForm={this.state.currentForm}></Form>
         <MainBody className="MainBody"></MainBody>
       </div>
     );
