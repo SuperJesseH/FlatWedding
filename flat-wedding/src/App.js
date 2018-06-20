@@ -43,7 +43,6 @@ class App extends Component {
     const name = e.target.parentNode.children[0].value
     const body = e.target.parentNode.children[1].value
     fetch(URL + "posts" + "/1", {
-      method: POST,
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         name: {name},
@@ -62,13 +61,15 @@ class App extends Component {
   }
 
   render() {
-    const buttons = ["Write on wall", "Events", "RSVP", "LOGIN/Logout"]
+    const buttons = ["WallPost", "Events", "RSVP", "Auth"]
     console.log(this.state);
     return (
       <div className="App">
         <NavBar className="NavBar" setCurrentForm={this.setCurrentForm} buttons={buttons}></NavBar>
-        <Form className="Form"></Form>
+
+        <Form className="Form" formOptions={buttons} currentForm={this.state.currentForm}></Form>
         <MainBody className="MainBody" handleClick={this.handleClick} posts={this.state.posts}></MainBody>
+
       </div>
     );
   }

@@ -5,7 +5,16 @@ import PostContainer from './PostContainer'
 
 export default class MainBody extends Component{
 
+  constructor(props){
+    super(props)
+
+    this.state = {
+      heads:false
+    }
+  }
+
   render(){
+    console.log(this.state);
     return(
       <div>
         <BouncingHeads />
