@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import BouncingHeads from './BouncingHeads'
-import MessageContainer from './MessageContainer'
+import PostContainer from './PostContainer'
 
 
 export default class MainBody extends Component{
@@ -9,7 +9,7 @@ export default class MainBody extends Component{
     return(
       <div>
         <BouncingHeads />
-        <MessageContainer />
+        <PostContainer handleClick={this.props.handleClick} posts={this.props.posts}/>
       </div>
     )
   }
