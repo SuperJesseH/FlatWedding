@@ -28,7 +28,7 @@ export default class Form extends Component{
           return <EventContainer handleEventClick={this.props.handleEventClick} events={this.props.events}/>
           break
         case "RSVP":
-          return <RSVP />
+          return <RSVP fetchURL={this.props.fetchURL}/>
           break
         default:
           return <Auth />
