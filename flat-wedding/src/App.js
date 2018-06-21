@@ -6,13 +6,30 @@ import Form from './components/Form'
 const URL = "http://localhost:3000/api/v1/"
 
 
-
-
 class App extends Component {
     state = {
       events: [],
       users: [],
       posts: []
+    }
+
+    handleClick = (field) => {
+      const name = field[0].value
+      const message = field[1].value
+      console.log(name);
+      console.log(message);
+      fetch(URL+"posts", {
+        method: "POST",
+        headers: {"Content-type": "application/json"},
+        body: JSON.stringify({
+          name: name,
+          body: message,
+          // filler id
+          user_id: 1
+        })
+      })
+      .then(res => res.json())
+      .then(data => console.log(data))
     }
 
     getUsers() {
@@ -39,19 +56,6 @@ class App extends Component {
     this.getPosts()
   }
 
-  handleClick = (e) => {
-    const name = e.target.parentNode.children[0].value
-    const body = e.target.parentNode.children[1].value
-    fetch(URL + "posts" + "/1", {
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: {name},
-        body: {body}
-      })
-    })
-    .then(res => res.json())
-    .then(data => console.log(data))
-  }
 
 
   setCurrentForm = (formName) =>{
@@ -67,7 +71,7 @@ class App extends Component {
       <div className="App">
         <NavBar className="NavBar" setCurrentForm={this.setCurrentForm} buttons={buttons}></NavBar>
 
-        <Form className="Form" formOptions={buttons} currentForm={this.state.currentForm}></Form>
+        <Form className="Form" formOptions={buttons} currentForm={this.state.currentForm} handleClick={this.handleClick}></Form>
         <MainBody className="MainBody" handleClick={this.handleClick} posts={this.state.posts}></MainBody>
 
       </div>

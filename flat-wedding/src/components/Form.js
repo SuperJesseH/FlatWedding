@@ -6,13 +6,16 @@ import Auth from './Auth'
 
 
 export default class Form extends Component{
+  constructor(props){
+    super(props)
+  }
 
   render(){
     const aForm = () =>{
       switch (this.props.currentForm){
 
         case "WallPost":
-          return <WallPost />
+          return <WallPost handleClick={this.props.handleClick} />
           break
         case "Events":
           return <Events />

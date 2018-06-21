@@ -13,9 +13,6 @@ class PostContainer extends Component{
     const posts = this.generatePosts();
     return(
       <div>
-        <input type="text" placeholder="name" />
-        <input type="text" placeholder="lovely message"/>
-        <input type="submit" onClick={(e) => this.props.handleClick(e)} />
         {posts}
       </div>
     )

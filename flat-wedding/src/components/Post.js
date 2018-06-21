@@ -9,7 +9,6 @@ const Post = (props) => {
         <p>{props.post.body}</p>
       </div>
     )
-
   }
 
 
