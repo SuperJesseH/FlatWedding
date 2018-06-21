@@ -66,12 +66,12 @@ class App extends Component {
 
   render() {
     const buttons = ["WallPost", "Events", "RSVP", "Auth"]
-    console.log(this.state);
     return (
       <div className="App">
         <NavBar className="NavBar" setCurrentForm={this.setCurrentForm} buttons={buttons}></NavBar>
 
-        <Form className="Form" formOptions={buttons} currentForm={this.state.currentForm} handleClick={this.handleClick}></Form>
+        <Form className="Form" formOptions={buttons} currentForm={this.state.currentForm} handleClick={this.handleClick} fetchURL={URL}></Form>
+
         <MainBody className="MainBody" handleClick={this.handleClick} posts={this.state.posts}></MainBody>
 
       </div>

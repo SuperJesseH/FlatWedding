@@ -21,7 +21,7 @@ export default class Form extends Component{
           return <Events />
           break
         case "RSVP":
-          return <RSVP />
+          return <RSVP fetchURL={this.props.fetchURL}/>
           break
         default:
           return <Auth />

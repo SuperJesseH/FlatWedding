@@ -14,7 +14,6 @@ export default class MainBody extends Component{
   }
 
   render(){
-    console.log(this.state);
     return(
       <div>
         <BouncingHeads />
