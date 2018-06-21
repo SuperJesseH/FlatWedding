@@ -10,11 +10,9 @@ const NavBar = (props)=>{
 
 
     return(
-      <div>
+      <div class="NavBar">
         <div className='NavText'>
-          <h1>melanie + jesse</h1>
-          <h2>13 april 2019</h2>
-          <h2>madison, wi</h2>
+          <p>melanie + jesse</p>
         </div>
 
         <div className='NavButtonRow'>

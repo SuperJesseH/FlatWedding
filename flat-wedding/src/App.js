@@ -13,11 +13,9 @@ class App extends Component {
       posts: []
     }
 
-    handleClick = (field) => {
+    handlePostClick = (field) => {
       const name = field[0].value
       const message = field[1].value
-      console.log(name);
-      console.log(message);
       fetch(URL+"posts", {
         method: "POST",
         headers: {"Content-type": "application/json"},
@@ -29,7 +27,13 @@ class App extends Component {
         })
       })
       .then(res => res.json())
-      .then(data => console.log(data))
+      .then(post => this.setState({posts: [...this.state.posts, post]}))
+      field[0].value = ''
+      field[1].value = ''
+    }
+
+    handleEventClick = (e) => {
+      console.log(e);
     }
 
     getUsers() {
@@ -66,16 +70,15 @@ class App extends Component {
 
   render() {
     const buttons = ["WallPost", "Events", "RSVP", "Auth"]
-    console.log(this.state);
     return (
       <div className="App">
         <NavBar className="NavBar" setCurrentForm={this.setCurrentForm} buttons={buttons}></NavBar>
 
-        <Form className="Form" formOptions={buttons} currentForm={this.state.currentForm} handleClick={this.handleClick}></Form>
+        <Form className="Form" formOptions={buttons} currentForm={this.state.currentForm} handlePostClick={this.handlePostClick} events={this.state.events} handleEventClick={this.handleEventClick}></Form>
         <MainBody className="MainBody" handleClick={this.handleClick} posts={this.state.posts}></MainBody>
 
       </div>
-    );
+    )
   }
 }
 

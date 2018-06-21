@@ -9,7 +9,6 @@ class PostContainer extends Component{
   generatePosts = () => {return this.props.posts.map(post => <Post post={post} /> )}
 
   render(){
-    console.log(this.props);
     const posts = this.generatePosts();
     return(
       <div>
