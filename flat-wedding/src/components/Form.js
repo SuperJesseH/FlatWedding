@@ -13,7 +13,6 @@ export default class Form extends Component{
   }
 
   render(){
-    console.log("form props", this.props);
     const aForm = () =>{
       switch (this.props.currentForm){
 

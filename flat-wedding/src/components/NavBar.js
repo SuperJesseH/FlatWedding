@@ -17,7 +17,7 @@ const NavBar = (props)=>{
 
         <div className='NavButtonRow'>
             {props.buttons.map((aButton)=>
-              <button key={aButton} onClick={(aButton)=>handleButton(aButton)}>{aButton}</button>)}
+              <p key={aButton} onClick={(aButton)=>handleButton(aButton)}>{aButton}</p>)}
         </div>
       </div>
     )

@@ -6,12 +6,14 @@ export default class WallPost extends Component{
     super(props)
   }
 
+
   render(){
     return(
       <React.Fragment>
-        <input type="text" placeholder="name"></input>
-        <input type="text" placeholder="message"></input>
-        <button type="submit" onClick={(e) => this.props.handlePostClick(e.target.parentNode.children)} >submit</button>
+        <form class="ui form">
+            <input type="text" name="message" placeholder="message" />
+          <button class="ui button" type="submit" onClick={(e) => this.props.handlePostClick(e)} >Submit</button>
+        </form>
       </React.Fragment>
     )
   }
