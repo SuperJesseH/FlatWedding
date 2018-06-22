@@ -10,7 +10,8 @@ class App extends Component {
     state = {
       events: [],
       users: [],
-      posts: []
+      posts: [],
+      bounceAway: false
     }
 
     handlePostClick = (field) => {
@@ -74,7 +75,6 @@ class App extends Component {
 
   render() {
     const buttons = ["WallPost", "Events", "RSVP", "Auth"]
-    console.log("rerender triggered");
     return (
       <div className="App">
 
@@ -84,7 +84,8 @@ class App extends Component {
         setCurrentForm={this.setCurrentForm}
         fetchURL={URL}></Form>
 
-        <MainBody className="MainBody" handleClick={this.handleClick} posts={this.state.posts} />
+        <MainBody className="MainBody" handleClick={this.handleClick} posts={this.state.posts}
+        currentForm={this.state.currentForm} />
 
       </div>
     )
