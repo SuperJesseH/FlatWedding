@@ -33,18 +33,24 @@ export default class Auth extends Component{
 
   handleSubmit = (e) => {
     e.preventDefault()
+    console.log(this.props.fetchURL + "sessions");
     fetch(this.props.fetchURL + "sessions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(this.state)
-    }).then(resp=>resp.json()).then(json=> { localStorage.setItem('token', json.token);
-  })
+    })
+      .then(resp=>resp.json())
+      .then(json=> {
+        localStorage.setItem('token', json.token)
+        this.props.setCurrentForm('WallPost')
+      })
   }
 
 
   render(){
+    // console.log(this.props.fetchURL);
     return(
       <div>
         <form onSubmit={this.handleSubmit}>

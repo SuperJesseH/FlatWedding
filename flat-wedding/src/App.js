@@ -10,7 +10,8 @@ class App extends Component {
     state = {
       events: [],
       users: [],
-      posts: []
+      posts: [],
+      bounceAway: false
     }
 
     handlePostClick = (e) => {
@@ -49,7 +50,8 @@ class App extends Component {
     }
 
     getPosts() {
-      fetch(URL + "posts")
+      fetch(URL + "posts", {headers: {"Content-Type": "application/json",
+      "Authorization": localStorage.getItem("token")}})
       .then(res => res.json())
       .then(posts => this.setState({ posts }))
     }
@@ -66,16 +68,24 @@ class App extends Component {
     this.setState({
       currentForm:`${formName}`
     })
+    this.getUsers()
+    this.getEvents()
+    this.getPosts()
   }
 
   render() {
     const buttons = ["WallPost", "Events", "RSVP", "Auth"]
     return (
       <div className="App">
+
         <NavBar className="NavBar" setCurrentForm={this.setCurrentForm} buttons={buttons}></NavBar>
 
-        <Form className="Form" formOptions={buttons} currentForm={this.state.currentForm} handlePostClick={this.handlePostClick} events={this.state.events} handleEventClick={this.handleEventClick} fetchURL={URL}></Form>
-        <MainBody className="MainBody" handleClick={this.handleClick} posts={this.state.posts}></MainBody>
+        <Form className="Form" formOptions={buttons} currentForm={this.state.currentForm} handlePostClick={this.handlePostClick} events={this.state.events} handleEventClick={this.handleEventClick}
+        setCurrentForm={this.setCurrentForm}
+        fetchURL={URL}></Form>
+
+        <MainBody className="MainBody" handleClick={this.handleClick} posts={this.state.posts}
+        currentForm={this.state.currentForm} />
 
       </div>
     )

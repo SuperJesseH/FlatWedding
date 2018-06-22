@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 
 class Event extends Component{
-  constructor(props){
-    super(props)
-  }
+  // constructor(props){
+  //   super(props)
+  // }
 
   render(){
-    console.log("event props", this.props.event);
     return(
       <div>
       <p>{this.props.event.name}</p>
