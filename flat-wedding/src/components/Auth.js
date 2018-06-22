@@ -50,12 +50,16 @@ export default class Auth extends Component{
 
 
   render(){
+
+
+
     // console.log(this.props.fetchURL);
     return(
+
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form class="ui form" onSubmit={this.handleSubmit}>
           {Object.keys(this.state).map(key =>(
-            <div>
+            <div class="field">
           <label htmlFor={key}>{key}</label>
           <input
             type={key === "password" ? "password" : "text"}
@@ -66,7 +70,7 @@ export default class Auth extends Component{
           />
         </div>)
       )}
-      <input type="submit" value="Login"/>
+      <button class="ui button" type="submit">log in</button>
         </form>
       </div>
     )
