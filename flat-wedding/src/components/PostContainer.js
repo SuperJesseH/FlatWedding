@@ -10,7 +10,7 @@ class PostContainer extends Component{
   generatePosts = () =>
    (
      !!this.props.posts.length ?
-    this.props.posts.map(post => <Post key={UUID()} post={post} />)
+    this.props.posts.map(post => <Post key={UUID()} post={post} user={this.props.users.find(user=>user.id === post.user_id)}/>)
      :
     "Please login"
    )
