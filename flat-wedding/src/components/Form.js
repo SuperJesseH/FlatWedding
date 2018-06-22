@@ -13,7 +13,7 @@ export default class Form extends Component{
   // }
 
   render(){
-    console.log(this.props.fetchURL);
+    // console.log(this.props.fetchURL);
     const aForm = () =>{
       switch (this.props.currentForm){
 
@@ -32,7 +32,7 @@ export default class Form extends Component{
           setCurrentForm={this.props.setCurrentForm}/>
           break
         default:
-          return <Auth fetchURL={this.props.fetchURL}/>
+          return <Auth fetchURL={this.props.fetchURL} setCurrentForm={this.props.setCurrentForm}/>
       }
     }
     return(

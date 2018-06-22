@@ -16,8 +16,7 @@ export default class BouncingHeads extends Component{
     }
   }
 
-  interval(){
-    setInterval(()=>{
+  interval = setInterval(()=>{
       if (this.state.xLoc >= window.innerWidth/6){
         this.setState({
         xVec:this.state.xVec * -1,
@@ -31,13 +30,19 @@ export default class BouncingHeads extends Component{
         xLoc:this.state.xLoc + this.state.xVec
         })
     },20)
-  }
+
 
   componentDidMount(){
-    this.interval()
+    this.interval
+  }
+
+  componentWillUnmount(){
+    console.log('TRIGGERD');
+    clearInterval(this.interval)
   }
 
   render(){
+    this.props.removalFunc(this.state.xLoc)
     return(
     <div>
       <BigHead src={jesse} position={Math.abs( window.innerWidth - (this.state.xLoc + window.innerWidth/3 ))}/>

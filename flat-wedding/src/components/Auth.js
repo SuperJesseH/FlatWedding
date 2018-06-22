@@ -40,13 +40,20 @@ export default class Auth extends Component{
         "Content-Type": "application/json"
       },
       body: JSON.stringify(this.state)
-    }).then(resp=>resp.json()).then(json=> { localStorage.setItem('token', json.token);
-  })
+    })
+      .then(resp=>resp.json())
+      .then(json=> {
+        localStorage.setItem('token', json.token)
+        console.log("token in local storage is", localStorage.token);
+        console.log("triggered setCurrentForm");
+        console.log("-------");
+        this.props.setCurrentForm('WallPost')
+      })
   }
 
 
   render(){
-    console.log(this.props.fetchURL);
+    // console.log(this.props.fetchURL);
     return(
       <div>
         <form onSubmit={this.handleSubmit}>

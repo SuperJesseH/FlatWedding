@@ -56,7 +56,6 @@ class App extends Component {
     }
 
   componentDidMount() {
-    console.log("MOUNTED!!", this.state);
     this.getUsers()
     this.getEvents()
     this.getPosts()
@@ -68,20 +67,24 @@ class App extends Component {
     this.setState({
       currentForm:`${formName}`
     })
+    this.getUsers()
+    this.getEvents()
+    this.getPosts()
   }
 
   render() {
     const buttons = ["WallPost", "Events", "RSVP", "Auth"]
+    console.log("rerender triggered");
     return (
       <div className="App">
-        
+
         <NavBar className="NavBar" setCurrentForm={this.setCurrentForm} buttons={buttons}></NavBar>
 
         <Form className="Form" formOptions={buttons} currentForm={this.state.currentForm} handlePostClick={this.handlePostClick} events={this.state.events} handleEventClick={this.handleEventClick}
         setCurrentForm={this.setCurrentForm}
         fetchURL={URL}></Form>
 
-        <MainBody className="MainBody" handleClick={this.handleClick} posts={this.state.posts}></MainBody>
+        <MainBody className="MainBody" handleClick={this.handleClick} posts={this.state.posts} />
 
       </div>
     )

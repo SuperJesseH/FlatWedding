@@ -9,14 +9,32 @@ export default class MainBody extends Component{
     super(props)
 
     this.state = {
-      heads:false
+      heads:true,
+      floatAway:false
+    }
+  }
+
+  removeHeads = (xLoc) => {
+    if (xLoc < (window.innerWidth/3) * -1){
+      this.setState({
+        heads:false
+      })
+    }
+  }
+
+
+  componentDidMount(){
+    if (!!localStorage.length){
+      console.log("floatAway", !!localStorage.length);
+      this.setState({floatAway:true})
     }
   }
 
   render(){
+
     return(
       <div>
-        <BouncingHeads />
+        {this.state.heads ? <BouncingHeads removalFunc={this.removeHeads} floatAway={this.state.floatAway}/> : <div></div>}
         <PostContainer handleClick={this.props.handleClick} posts={this.props.posts}/>
       </div>
     )
