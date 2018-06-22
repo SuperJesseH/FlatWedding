@@ -1,9 +1,9 @@
-import React, {Component} from 'react'
+import React from 'react'
 
 const Hearts = (props) =>{
 
   return(
-    <img src={props.src}></img>
+    <img alt="heart" src={props.src}></img>
   )
 }
 

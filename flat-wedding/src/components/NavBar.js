@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 
 const NavBar = (props)=>{
@@ -10,7 +10,7 @@ const NavBar = (props)=>{
 
 
     return(
-      <div class="NavBar">
+      <div className="NavBar">
         <div className='NavText'>
           <p>melanie + jesse</p>
         </div>

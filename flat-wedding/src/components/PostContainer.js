@@ -3,11 +3,17 @@ import Post from './Post.js'
 import UUID from 'uuid'
 
 class PostContainer extends Component{
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
-  generatePosts = () => {return this.props.posts.map(post => <Post key={UUID()} post={post} /> )}
+  generatePosts = () =>
+   (
+     !!this.props.posts.length ?
+    this.props.posts.map(post => <Post key={UUID()} post={post} />)
+     :
+    "Please login"
+   )
 
   render(){
     const posts = this.generatePosts();

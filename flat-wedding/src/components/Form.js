@@ -8,12 +8,12 @@ import Auth from './Auth'
 
 
 export default class Form extends Component{
-  constructor(props){
-    super(props)
-  }
+  // constructor(props){
+  //   super(props)
+  // }
 
   render(){
-    console.log("form props", this.props);
+    console.log(this.props.fetchURL);
     const aForm = () =>{
       switch (this.props.currentForm){
 
@@ -28,10 +28,11 @@ export default class Form extends Component{
           return <EventContainer handleEventClick={this.props.handleEventClick} events={this.props.events}/>
           break
         case "RSVP":
-          return <RSVP fetchURL={this.props.fetchURL}/>
+          return <RSVP fetchURL={this.props.fetchURL}
+          setCurrentForm={this.props.setCurrentForm}/>
           break
         default:
-          return <Auth />
+          return <Auth fetchURL={this.props.fetchURL}/>
       }
     }
     return(

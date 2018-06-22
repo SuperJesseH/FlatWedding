@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import UUID from 'uuid'
+//import UUID from 'uuid'
 
 export default class RSVP extends Component{
 
@@ -43,8 +43,10 @@ export default class RSVP extends Component{
         "Content-Type": "application/json"
       },
       body: JSON.stringify(this.state)
-    }).then(resp=>resp.json()).then(json=> { localStorage.setItem('token', json.token);
+    }).then(resp=>resp.json()).then(json=> { localStorage.setItem('token', json.token)
+    localStorage.setItem('id', json.token);
   })
+  this.props.setCurrentForm('WallPost')
   }
 
 

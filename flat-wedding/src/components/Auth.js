@@ -33,6 +33,7 @@ export default class Auth extends Component{
 
   handleSubmit = (e) => {
     e.preventDefault()
+    console.log(this.props.fetchURL + "sessions");
     fetch(this.props.fetchURL + "sessions", {
       method: "POST",
       headers: {
@@ -45,6 +46,7 @@ export default class Auth extends Component{
 
 
   render(){
+    console.log(this.props.fetchURL);
     return(
       <div>
         <form onSubmit={this.handleSubmit}>

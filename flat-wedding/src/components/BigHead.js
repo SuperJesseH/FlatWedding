@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 
 const BigHead = (props) =>{
 
@@ -9,7 +9,7 @@ const BigHead = (props) =>{
   }
 
   return(
-    <img src={props.src} style={imgStyle}></img>
+    <img alt="head" src={props.src} style={imgStyle}></img>
   )
 }
 
