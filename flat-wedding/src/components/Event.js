@@ -6,12 +6,13 @@ class Event extends Component{
   // }
 
   render(){
+    const time = new Date(this.props.event.start_time)
     return(
+
       <div>
       <p>{this.props.event.name}</p>
-      <p>{this.props.event.date}</p>
-      <p>{this.props.event.starttime}</p>
-      <p>{this.props.event.endtime}</p>
+      <p>{time.toDateString()}</p>
+      <p>{time.toLocaleTimeString()}</p>
       </div>
     )
   }

@@ -35,10 +35,13 @@ export default class MainBody extends Component{
   render(){
     return(
       <div>
+
+        <PostContainer users={this.props.users} handleClick={this.props.handleClick} posts={this.props.posts}/>
+
         {this.state.heads ? <BouncingHeads removalFunc={this.removeHeads} floatAway={this.state.floatAway}
         currentForm={this.props.currentForm}
         /> : <div></div>}
-        <PostContainer users={this.props.users} handleClick={this.props.handleClick} posts={this.props.posts}/>
+
       </div>
     )
   }
