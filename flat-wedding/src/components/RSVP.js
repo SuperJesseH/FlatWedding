@@ -53,7 +53,7 @@ export default class RSVP extends Component{
   render(){
     return(
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} class="ui form" >
           {Object.keys(this.state).map(key =>(
             <div>
           <label htmlFor={key}>{key}</label>
@@ -66,7 +66,7 @@ export default class RSVP extends Component{
           />
         </div>)
       )}
-      <input type="submit" value="Submit RSVP"/>
+      <input type="submit" class="ui button" value="Submit"  />
         </form>
       </div>
     )

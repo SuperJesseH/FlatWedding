@@ -11,13 +11,11 @@ const NavBar = (props)=>{
 
     return(
       <div className="NavBar">
-        <div className='NavText'>
-          <p>melanie + jesse</p>
-        </div>
 
         <div className='NavButtonRow'>
+          <div className="navButtons">melanie + jessie</div>
             {props.buttons.map((aButton)=>
-              <div key={aButton} onClick={(aButton)=>handleButton(aButton)}>{aButton}</div>)}
+              <div key={aButton} className="navButtons" onClick={(aButton)=>handleButton(aButton)}>{aButton}</div>)}
         </div>
       </div>
     )
