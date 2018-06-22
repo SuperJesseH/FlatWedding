@@ -23,8 +23,7 @@ class App extends Component {
         headers: {"Content-type": "application/json"},
         body: JSON.stringify({
           body: message,
-          // filler id
-          user_id: 1
+          user_id: localStorage.id
         })
       })
       .then(res => res.json())
@@ -85,7 +84,8 @@ class App extends Component {
         fetchURL={URL}></Form>
 
         <MainBody className="MainBody" handleClick={this.handleClick} posts={this.state.posts}
-        currentForm={this.state.currentForm} />
+        currentForm={this.state.currentForm}
+        users={this.state.users}/>
 
       </div>
     )

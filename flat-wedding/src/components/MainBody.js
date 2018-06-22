@@ -24,10 +24,7 @@ export default class MainBody extends Component{
 
 
   componentWillReceiveProps = (nextProps) => {
-    console.log("inside component lifecycle");
-    // debugger
     if (nextProps.posts.message === undefined && localStorage.length > 0){
-      console.log("inside boolean");
       // console.log("floatAway", !!localStorage.length);
       this.setState({
         floatAway:true
@@ -41,7 +38,7 @@ export default class MainBody extends Component{
         {this.state.heads ? <BouncingHeads removalFunc={this.removeHeads} floatAway={this.state.floatAway}
         currentForm={this.props.currentForm}
         /> : <div></div>}
-        <PostContainer handleClick={this.props.handleClick} posts={this.props.posts}/>
+        <PostContainer users={this.props.users} handleClick={this.props.handleClick} posts={this.props.posts}/>
       </div>
     )
   }

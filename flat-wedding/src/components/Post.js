@@ -4,7 +4,7 @@ const Post = (props) => {
 
     return(
       <div>
-        <p>{props.post.name}</p>
+        <p>{props.user.username}</p>
         <p>{props.post.body}</p>
       </div>
     )

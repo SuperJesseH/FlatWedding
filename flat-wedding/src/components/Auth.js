@@ -44,6 +44,7 @@ export default class Auth extends Component{
       .then(resp=>resp.json())
       .then(json=> {
         localStorage.setItem('token', json.token)
+        localStorage.setItem('id', json.id)
         this.props.setCurrentForm('WallPost')
       })
   }
