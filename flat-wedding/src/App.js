@@ -78,11 +78,12 @@ class App extends Component {
       <div className="App">
 
         <NavBar className="NavBar" setCurrentForm={this.setCurrentForm} buttons={buttons}></NavBar>
-
+        <br />
         <Form className="Form" formOptions={buttons} currentForm={this.state.currentForm} handlePostClick={this.handlePostClick} events={this.state.events} handleEventClick={this.handleEventClick}
         setCurrentForm={this.setCurrentForm}
         fetchURL={URL}></Form>
 
+        <br />
         <MainBody className="MainBody" handleClick={this.handleClick} posts={this.state.posts}
         currentForm={this.state.currentForm}
         users={this.state.users}/>

@@ -11,7 +11,7 @@ class EventContainer extends Component{
   render(){
     const events = this.generateEvents();
     return(
-      <div>
+      <div className="ui segment">
         {events}
       </div>
     )

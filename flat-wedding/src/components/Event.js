@@ -10,9 +10,10 @@ class Event extends Component{
     return(
 
       <div>
-      <p>{this.props.event.name}</p>
+      <b><p>{this.props.event.name}</p></b>
       <p>{time.toDateString()}</p>
       <p>{time.toLocaleTimeString()}</p>
+            <br />
       </div>
     )
   }

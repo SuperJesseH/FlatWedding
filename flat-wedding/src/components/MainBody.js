@@ -38,6 +38,8 @@ export default class MainBody extends Component{
 
         <PostContainer users={this.props.users} handleClick={this.props.handleClick} posts={this.props.posts}/>
 
+        <br />
+        
         {this.state.heads ? <BouncingHeads removalFunc={this.removeHeads} floatAway={this.state.floatAway}
         currentForm={this.props.currentForm}
         /> : <div></div>}
