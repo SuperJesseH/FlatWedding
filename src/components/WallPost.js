@@ -7,12 +7,28 @@ export default class WallPost extends Component{
   // }
 
 
+
+  loadFile = (e) => {
+    e.preventDefault()
+    e.persist()
+    console.log(this.props);
+    let reader = new FileReader();
+    let file = document.getElementById("imgInput").files[0]
+    reader.onloadend = () =>{
+      this.props.handlePostClick(e, reader.result)
+    }
+
+    reader.readAsArrayBuffer(file)
+  }
+
   render(){
     return(
       <React.Fragment>
         <form class="ui form">
             <input type="text" name="message" placeholder="message" />
-          <button class="ui button" type="submit" onClick={(e) => this.props.handlePostClick(e)} >Submit</button>
+            Image upload
+            <input type="file" name="image" placeholder="message" id="imgInput" />
+          <button class="ui button" type="submit" onClick={this.loadFile} >Submit</button>
         </form>
       </React.Fragment>
     )

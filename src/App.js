@@ -14,14 +14,16 @@ class App extends Component {
       bounceAway: false
     }
 
-    handlePostClick = (e) => {
-      console.log("handlePostClick", e.target.parentNode.children[0].value);
+    handlePostClick = (e, file) => {
       e.preventDefault()
+      console.log("handlePostClick", file)
       const message = e.target.parentNode.children[0].value
+
       fetch(URL+"posts", {
         method: "POST",
         headers: {"Content-type": "application/json"},
         body: JSON.stringify({
+          image: file,
           body: message,
           user_id: localStorage.id
         })
